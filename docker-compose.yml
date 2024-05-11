@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  app:
+    image: leduytien0801/chat-bot:latest
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - app
+    ports:
+      - "80:80"
